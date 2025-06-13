@@ -34,6 +34,13 @@ export default async function Home() {
     })
   );
 
+  // Sort by date (newest first)
+  mdxContents.sort((a, b) => {
+    const dateA = new Date(a.frontmatter.date);
+    const dateB = new Date(b.frontmatter.date);
+    return dateB.getTime() - dateA.getTime();
+  });
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -49,6 +56,15 @@ export default async function Home() {
               </ReleaseSection>
             </div>
           ))}
+        </div>
+        <div className={styles.endSection}>
+          <div className={styles.endContent}>
+            <span>You&apos;ve reached the end of the changelog.</span>
+            <div className={styles.endQuote}>
+              &ldquo;A journey of a thousand miles begins <br /> with a single
+              step.&rdquo; — Lao Tzu
+            </div>
+          </div>
         </div>
       </main>
     </div>

@@ -1,7 +1,76 @@
+/* Font Face Declarations */
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/SF-Pro-Display/SF-Pro-Display-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/SF-Pro-Display/SF-Pro-Display-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("/fonts/SF-Pro-Display/SF-Pro-Display-Semibold.woff2")
+    format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Mono";
+  src: url("/fonts/SF-Mono/SF-Mono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/Tiempos-Headline/Tiempos-Headline-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/Tiempos-Headline/Tiempos-Headline-Medium.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Headline";
+  src: url("/fonts/Tiempos-Headline/Tiempos-Headline-Semibold.woff2")
+    format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Custom Properties */
 :root {
+  --font-sans: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
+  --font-serif: "Tiempos Headline", "Times New Roman", serif;
+
+  /* Base color scheme */
   --background: #ffffff;
   --foreground: #212121;
   --accent: #5e5e5e;
+  --accent-rgb: 94, 94, 94;
   --primary: #212121;
   --secondary: #586cb2;
   --neutral: #86868b;
@@ -9,23 +78,74 @@
   --warning: #ff5a00;
   --base-100: #ffffff;
   --base-200: #f5f5f5;
-  --muted: #f5f5f5;
+  --base-300: #e8e8e8;
+  --muted: #141516;
+
+  /* Border colors */
+  --border-light: rgba(82, 82, 91, 0.3);
+  --border-medium: rgba(82, 82, 91, 0.5);
+
+  /* Spacing tokens */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 0.75rem; /* 12px */
+  --space-lg: 1rem; /* 16px */
+  --space-xl: 1.25rem; /* 20px */
+  --space-2xl: 1.5rem; /* 24px */
+  --space-3xl: 2rem; /* 32px */
+  --space-4xl: 2.5rem; /* 40px */
+  --space-5xl: 3rem; /* 48px */
+
+  /* Typography scale */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Responsive breakpoints */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+
+  /* Component specific tokens */
+  --container-max-width: 768px;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
-    --foreground: #f8fafc;
+    --background: #08090a;
+    --foreground: #f7f8f8;
     --accent: #d1d5db;
-    --primary: #f8fafc;
+    --primary: #f7f8f8;
     --secondary: #586cb2;
     --neutral: #86868b;
     --success: #059669;
     --warning: #ff5a00;
-    --base-100: #000000;
-    --base-200: #121212;
-    --muted: #121212;
+    --base-100: #08090a;
+    --base-200: #141516;
+    --base-300: #191a1b;
+    --muted: #141516;
+
+    /* Dark mode border colors */
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-medium: rgba(255, 255, 255, 0.2);
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -37,20 +157,316 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif,
-    Helvetica, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+  letter-spacing: 0.005em;
 }
 
+/* Paragraph and body text spacing - Matching Personal Website */
+p {
+  padding-bottom: var(--space-lg);
+  line-height: 1.75; /* leading-7 */
+  margin: 0;
+  letter-spacing: 0.005em;
+}
+
+/* List spacing - Restored better spacing */
+ul {
+  list-style-type: disc;
+  padding-left: var(--space-xl);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+}
+
+ol {
+  list-style-type: decimal;
+  padding-left: var(--space-xl);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+}
+
+li {
+  margin-bottom: var(--space-sm);
+}
+
+/* Horizontal Rule */
+hr {
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
+}
+
+/* Typography Classes */
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Heading Styles - Matching Personal Website Prose Components */
+h1 {
+  font-family: var(--font-sans);
+  font-size: var(--text-3xl);
+  font-weight: 600; /* font-semibold */
+  line-height: 1.2; /* More breathing room */
+  padding-bottom: var(--space-lg);
+  padding-top: var(--space-3xl);
+  color: var(--foreground);
+  margin: 0;
+}
+
+/* Responsive h1 sizing */
+@media (max-width: 767px) {
+  h1 {
+    font-size: var(--text-2xl);
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-md);
+  }
+}
+
+/* Reduce top padding for first heading */
+h1:first-child {
+  padding-top: 0;
+}
+
+@media (max-width: 767px) {
+  h1:first-child {
+    padding-top: 0;
+  }
+}
+
+h2 {
+  font-family: var(--font-sans);
+  font-size: var(--text-2xl);
+  font-weight: 500; /* font-medium */
+  line-height: 1.3; /* More breathing room */
+  padding-bottom: var(--space-lg);
+  padding-top: var(--space-2xl);
+  color: var(--foreground);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: var(--text-xl);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-md);
+  }
+}
+
+/* Reduce spacing when h2 follows h1 */
+h1 + h2 {
+  padding-top: var(--space-sm);
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: 500; /* font-medium */
+  line-height: 1.3; /* More breathing room */
+  padding-bottom: var(--space-lg);
+  padding-top: var(--space-xl);
+  color: var(--foreground);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  h3 {
+    font-size: var(--text-lg);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-md);
+  }
+}
+
+/* Reduce spacing when h3 follows h1 or h2 */
+h1 + h3,
+h2 + h3 {
+  padding-top: var(--space-sm);
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: 500; /* font-medium */
+  line-height: 1.4; /* More breathing room */
+  padding-bottom: var(--space-sm);
+  padding-top: var(--space-lg);
+  color: var(--foreground);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  h4 {
+    font-size: var(--text-base);
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-xs);
+  }
+}
+
+/* Reduce spacing when h4 follows other headings */
+h1 + h4,
+h2 + h4,
+h3 + h4 {
+  padding-top: var(--space-xs);
+}
+
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.4; /* More breathing room */
+  padding-bottom: var(--space-sm);
+  padding-top: var(--space-lg);
+  color: var(--foreground);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  h5,
+  h6 {
+    font-size: var(--text-sm);
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-xs);
+  }
+}
+
+/* Reduce spacing when h5/h6 follows other headings */
+h1 + h5,
+h2 + h5,
+h3 + h5,
+h4 + h5,
+h1 + h6,
+h2 + h6,
+h3 + h6,
+h4 + h6 {
+  padding-top: var(--space-xs);
+}
+
+/* Code and Pre Styles */
+code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  background: var(--base-300);
+  padding: var(--space-xs) var(--space-xs);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+pre {
+  font-family: var(--font-mono);
+  background: var(--base-300);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Link Styles - Matching Personal Website Prose Component */
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline; /* underline */
+  text-decoration-color: var(--neutral); /* decoration-secondary */
+  text-decoration-thickness: 1.5px; /* decoration-[1.5px] */
+  text-underline-offset: 2.5px; /* underline-offset-2 - correct conversion */
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+}
+
+/* Utility Classes for Lit Components */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+}
+
+/* Common border styles */
+.border-light {
+  border: 1px solid var(--border-light);
+}
+
+.border-medium {
+  border: 1px solid var(--border-medium);
+}
+
+/* Common spacing utilities */
+.space-y-sm > * + * {
+  margin-top: var(--space-sm);
+}
+
+.space-y-md > * + * {
+  margin-top: var(--space-md);
+}
+
+.space-y-lg > * + * {
+  margin-top: var(--space-lg);
+}
+
+/* Responsive text utilities */
+.text-responsive-lg {
+  font-size: var(--text-lg);
+}
+
+@media (max-width: 767px) {
+  .text-responsive-lg {
+    font-size: var(--text-base);
+  }
+}
+
+.text-responsive-2xl {
+  font-size: var(--text-2xl);
+}
+
+@media (max-width: 767px) {
+  .text-responsive-2xl {
+    font-size: var(--text-xl);
+  }
+}
+
+.text-responsive-3xl {
+  font-size: var(--text-3xl);
+}
+
+@media (max-width: 767px) {
+  .text-responsive-3xl {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* Transition utilities */
+.transition-fast {
+  transition: all var(--transition-fast);
+}
+
+.transition-normal {
+  transition: all var(--transition-normal);
 }

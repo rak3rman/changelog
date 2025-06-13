@@ -7,43 +7,59 @@ export class LogHeader extends LitElement {
     :host {
       display: block;
     }
+
     .container {
-      max-width: 768px;
+      max-width: var(--container-max-width);
       margin: 0 auto;
     }
+
     .header {
-      text-align: center;
-      margin-bottom: 4rem;
+      margin: var(--space-4xl) 0;
     }
+
     h1 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-family: var(--font-serif);
+      font-size: var(--text-4xl);
+      font-weight: 600;
+      margin: 0 0 var(--space-md) 0;
+      color: inherit;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
     }
+
+    @media (max-width: 767px) {
+      h1 {
+        font-size: var(--text-3xl);
+      }
+
+      .header {
+        margin-bottom: var(--space-3xl);
+      }
+    }
+
     .subtitle {
-      color: rgb(161, 161, 170);
-      margin-bottom: 1rem;
+      color: var(--neutral);
+      padding-bottom: var(--space-sm);
+      line-height: 1.75;
+      margin: 0;
+      font-size: var(--text-lg);
     }
-    .links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      font-size: 0.875rem;
+
+    @media (max-width: 767px) {
+      .subtitle {
+        font-size: var(--text-base);
+      }
     }
+
     .link {
-      color: rgb(129, 140, 248);
+      color: var(--neutral);
       text-decoration: none;
-      transition: color 0.2s;
+      font-size: var(--text-sm);
+      transition: color var(--transition-fast);
     }
+
     .link:hover {
-      color: rgb(165, 180, 252);
-    }
-    .divider {
-      color: rgb(82, 82, 91);
-    }
-    .separator {
-      border-top: 1px solid rgba(82, 82, 91, 0.5);
-      margin: 4rem 0;
+      color: var(--foreground);
     }
   `;
 
@@ -52,12 +68,10 @@ export class LogHeader extends LitElement {
       <main class="container">
         <div class="header">
           <h1>Changelog</h1>
-          <p class="subtitle">New updates and improvements to our product.</p>
-          <div class="links">
-            <a href="#" class="link">Subscribe to updates</a>
-            <span class="divider">•</span>
-            <a href="#" class="link">Follow us on X</a>
-          </div>
+          <p class="subtitle">
+            Personal updates, improvements, and notes from Radison Akerman.
+          </p>
+          <a href="https://radison.io" class="link">radison.io</a>
         </div>
 
         <slot></slot>

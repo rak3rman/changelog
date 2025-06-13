@@ -1,0 +1,34 @@
+---
+date: 2025-06-11
+tag: "Mark 4 #37017f9"
+---
+
+# Mark 4: Progressively faster
+
+## Performance overhaul
+
+[Mark 4 (radison.io)](https://radison.io) is now faster than ever.
+The underlying architecture has been rebuilt as a Progressive Web App (PWA),
+bringing near-instant navigation, seamless reloads, and offline support across the entire site.
+Every interaction is radically fluid.
+
+## Link thumbnails
+
+![OG Image](https://imagedelivery.net/5zM6Rdl2uV8Hmr9WxRh20g/2bbedf01-06c4-477e-21d3-1c20b5697200/xl)
+
+Sharing links from radison.io now generates rich, mark-4-themed thumbnails.
+Each page renders its own [Open Graph (OG)](https://ogp.me) preview image on the fly using [nuxt-og-image](https://nuxt.com/modules/og-image).
+
+<CollapsibleSection title="Improvements">
+
+- <Label name="SEO" /> Introduced ogImage config and revised front matter with sitemap,
+  robots, and canonical support
+- <Label name="Infrastructure" /> Replaced Nuxt Content with fully static page generation
+- <Label name="Hero Sections" /> Increased fade-in animation reliability when navigating
+  between pages
+- <Label name="Typography" /> Adjusted font-face URLs to use the public path directly
+- <Label name="Theme" /> Refined dark color palette to be slightly lighter
+- <Label name="Summarize" /> Resume and PDF generation URLs now return "404 Not Found"
+  on production instances
+
+</CollapsibleSection>

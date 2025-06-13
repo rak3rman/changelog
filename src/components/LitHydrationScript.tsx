@@ -1,10 +1,8 @@
 "use client";
 
-// We don't need to import React here as it's automatically included
 import { useEffect, useState } from "react";
 
 // Importing the components for hydration
-// Imported in a separate useEffect to avoid module duplication during SSR
 export default function LitHydrationScript() {
   const [hydrated, setHydrated] = useState(false);
 
@@ -17,10 +15,10 @@ export default function LitHydrationScript() {
       try {
         // Import components one by one to prevent multiple Lit version warning
         // We need to import the modules in sequence
-        await import("./lit/LogHeader");
-        await import("./lit/ReleaseSection");
         await import("./lit/CollapsibleSection");
         await import("./lit/Label");
+        await import("./lit/LogHeader");
+        await import("./lit/ReleaseSection");
 
         console.debug("Lit components hydrated");
 

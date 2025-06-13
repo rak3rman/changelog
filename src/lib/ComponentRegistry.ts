@@ -18,28 +18,41 @@ export interface ComponentConfig {
   validateProps?: (props: Record<string, unknown>) => Record<string, string>;
 }
 
-// Register all components here
+// Register all components
 export const COMPONENT_REGISTRY: ComponentConfig[] = [
   {
-    tagName: "info-card",
-    importPath: "components/lit/InfoCard",
+    tagName: "collapsible-section",
+    importPath: "components/lit/CollapsibleSection",
     available: true,
     validateProps: (props) => ({
       title: props.title?.toString() || "",
-      description: props.description?.toString() || "",
-      tag: props.tag?.toString() || "",
+      childCount: props.childCount?.toString() || "0",
     }),
   },
   {
-    tagName: "status-badge",
-    importPath: "components/lit/StatusBadge",
+    tagName: "label-component",
+    importPath: "components/lit/Label",
     available: true,
     validateProps: (props) => ({
-      status: props.status?.toString() || "info",
-      showIcon: props.showIcon === false ? "false" : "true",
+      name: props.name?.toString() || "",
+      "hide-dot": props.hideDot === true ? "true" : "false",
     }),
   },
-  // Add more components here as they're created
+  {
+    tagName: "log-header",
+    importPath: "components/lit/LogHeader",
+    available: true,
+    validateProps: () => ({}),
+  },
+  {
+    tagName: "release-section",
+    importPath: "components/lit/ReleaseSection",
+    available: true,
+    validateProps: (props) => ({
+      date: props.date?.toString() || "",
+      tag: props.tag?.toString() || "",
+    }),
+  },
 ];
 
 /**

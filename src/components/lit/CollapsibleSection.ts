@@ -11,43 +11,78 @@ export class CollapsibleSection extends LitElement {
   static styles = css`
     :host {
       display: block;
-      padding: 1rem 0rem;
-      border-bottom: 1px solid rgba(82, 82, 91, 0.5);
+      padding: var(--space-xl) 0;
     }
+
+    :host + :host {
+      border-top: 1px solid var(--border-medium);
+    }
+
     .header {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 1rem;
+      font-size: var(--text-base);
       font-weight: 500;
       background: none;
       border: none;
       color: inherit;
       cursor: pointer;
       text-align: left;
+      padding: 0;
+      transition: color var(--transition-fast);
     }
+
+    .header:hover {
+      color: var(--foreground);
+    }
+
+    @media (max-width: 767px) {
+      .header {
+        font-size: var(--text-sm);
+      }
+    }
+
     .chevron {
-      width: 1.25rem;
-      height: 1.25rem;
-      color: rgb(113, 113, 122);
-      transition: transform 0.2s;
+      width: var(--space-xl);
+      height: var(--space-xl);
+      color: var(--neutral);
+      transition: transform var(--transition-normal),
+        color var(--transition-fast);
+      flex-shrink: 0;
     }
+
     .chevron.expanded {
-      transform: rotate(0deg);
+      transform: rotate(180deg);
+      color: var(--foreground);
     }
+
     .chevron.collapsed {
       transform: rotate(90deg);
     }
+
     .content {
       max-height: 0;
       overflow: hidden;
       opacity: 0;
       transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
     }
+
     .content.expanded {
-      max-height: 1000px; /* Arbitrary large value */
+      max-height: 1000px;
       opacity: 1;
+    }
+
+    @media (max-width: 767px) {
+      :host {
+        padding: var(--space-lg) 0;
+      }
+
+      .chevron {
+        width: var(--space-lg);
+        height: var(--space-lg);
+      }
     }
   `;
 

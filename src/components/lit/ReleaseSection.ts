@@ -9,36 +9,54 @@ export class ReleaseSection extends LitElement {
   static styles = css`
     :host {
       display: block;
-      margin-bottom: 4rem;
-      border-top: 1px solid rgba(82, 82, 91, 0.5);
+      margin-bottom: var(--space-5xl);
+      border-top: 1px solid var(--border-medium);
     }
+
     .grid {
       display: grid;
-      gap: 2rem;
+      gap: var(--space-3xl);
       position: relative;
-      margin: 3rem 0rem;
+      margin: var(--space-5xl) 0;
     }
+
     @media (min-width: 768px) {
       .grid {
         grid-template-columns: 180px 1fr;
       }
     }
+
     .date-column {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: var(--space-sm);
       color: var(--neutral);
-      position: sticky;
-      top: 0; /* How far from the top of the viewport it should stick */
-      margin-top: 1.75rem;
-      font-size: 0.9rem;
-      z-index: 10; /* Optional: ensures it appears above other content */
+      font-size: var(--text-sm);
+      z-index: 10;
     }
+
+    @media (min-width: 768px) {
+      .date-column {
+        position: sticky;
+        top: 0;
+        margin-top: var(--space-2xl);
+      }
+    }
+
     .content-column {
       position: relative;
+      margin-top: var(--space-2xl);
     }
-    .categories {
-      margin-top: 2rem;
+
+    @media (max-width: 767px) {
+      .content-column {
+        margin-top: var(--space-lg);
+      }
+
+      .grid {
+        gap: var(--space-xl);
+        margin: var(--space-3xl) 0;
+      }
     }
   `;
 

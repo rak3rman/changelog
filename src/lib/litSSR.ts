@@ -3,9 +3,6 @@ import {
   validateComponentProps,
 } from "./ComponentRegistry";
 
-// No need to import components here as they're loaded on-demand
-// This helps prevent multiple registration issues
-
 /**
  * Safely escape a value for use in HTML attributes
  * @param value The value to escape
@@ -44,10 +41,14 @@ export async function renderLitComponent(
   // Load component if needed (asynchronously)
   try {
     // Dynamically import component based on tagName
-    if (tagName === "info-card") {
-      await import("../components/lit/InfoCard");
-    } else if (tagName === "status-badge") {
-      await import("../components/lit/StatusBadge");
+    if (tagName === "collapsible-section") {
+      await import("../components/lit/CollapsibleSection");
+    } else if (tagName === "label-component") {
+      await import("../components/lit/Label");
+    } else if (tagName === "log-header") {
+      await import("../components/lit/LogHeader");
+    } else if (tagName === "release-section") {
+      await import("../components/lit/ReleaseSection");
     }
   } catch (error) {
     console.error(`Error loading component ${tagName}:`, error);

@@ -28,28 +28,40 @@ export class Label extends LitElement {
     :host {
       display: inline-flex;
       align-items: center;
-      gap: 0.375rem;
-      padding: 0 0.5rem;
-      margin-top: -0.05rem;
-      margin-right: 0.2rem;
-      height: 1.4rem;
-      border-radius: 0.5rem;
-      font-size: 0.75rem;
+      gap: var(--space-xs);
+      padding: 0 var(--space-sm);
+      height: 1.3rem;
+      border-radius: var(--radius-md);
+      font-size: var(--text-xs);
       font-weight: 500;
       background-color: var(--background);
-      border: 1px solid rgba(var(--accent-rgb, 94, 94, 94), 0.5);
+      border: 1px solid rgba(var(--accent-rgb), 0.5);
       white-space: nowrap;
+      margin-right: var(--space-xs);
+      vertical-align: baseline;
+      transform: translateY(-0.1em);
     }
 
     .color-dot {
-      width: 0.5rem;
-      height: 0.5rem;
+      width: var(--space-sm);
+      height: var(--space-sm);
       border-radius: 9999px;
       flex-shrink: 0;
     }
 
     .tag-text {
       color: var(--foreground);
+    }
+
+    @media (max-width: 767px) {
+      :host {
+        gap: 5px;
+      }
+
+      .color-dot {
+        width: 7px;
+        height: 7px;
+      }
     }
   `;
 
