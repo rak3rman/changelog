@@ -88,8 +88,8 @@ export default function RootLayout({
           sizes="180x180"
           href="https://imagedelivery.net/5zM6Rdl2uV8Hmr9WxRh20g/cbeec7ce-7b51-4cc2-81bb-e72289777900/w=180"
         />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="theme-color" content="#08090a" />
+        <meta name="msapplication-TileColor" content="#08090a" />
         <link rel="canonical" href="https://changelog.radison.io" />
       </head>
       <body className="font-sans">
