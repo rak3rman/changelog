@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://changelog.radison.io"
   ),
   alternates: {
     canonical: "/",
@@ -88,9 +88,9 @@ export default function RootLayout({
           sizes="180x180"
           href="https://imagedelivery.net/5zM6Rdl2uV8Hmr9WxRh20g/cbeec7ce-7b51-4cc2-81bb-e72289777900/w=180"
         />
-        <meta name="theme-color" content="#37017f" />
-        <meta name="msapplication-TileColor" content="#37017f" />
-        <link rel="canonical" href="https://radison.io" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <link rel="canonical" href="https://changelog.radison.io" />
       </head>
       <body className="font-sans">
         {children}
