@@ -1,7 +1,6 @@
 import { LitElement, html, css } from "lit";
-import { customElement } from "lit/decorators.js";
+import { safeDefineCustomElement } from "../../lib/ComponentRegistry";
 
-@customElement("log-header")
 export class LogHeader extends LitElement {
   static styles = css`
     :host {
@@ -80,3 +79,6 @@ export class LogHeader extends LitElement {
     `;
   }
 }
+
+// Register the custom element
+safeDefineCustomElement("log-header", LogHeader);

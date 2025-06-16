@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
+import { safeDefineCustomElement } from "../../lib/ComponentRegistry";
 
-@customElement("label-component")
 export class Label extends LitElement {
   @property({ type: String }) declare name: string;
   @property({ type: Boolean, attribute: "hide-dot" }) declare hideDot: boolean;
@@ -35,7 +35,7 @@ export class Label extends LitElement {
       font-size: var(--text-xs);
       font-weight: 500;
       background-color: var(--background);
-      border: 1px solid rgba(var(--accent-rgb), 0.5);
+      border: 1px solid var(--border-subtle);
       white-space: nowrap;
       margin-right: var(--space-xs);
       vertical-align: baseline;
@@ -79,3 +79,6 @@ export class Label extends LitElement {
     `;
   }
 }
+
+// Register the custom element
+safeDefineCustomElement("label-component", Label);

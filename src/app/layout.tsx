@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import LitHydrationScript from "../components/LitHydrationScript";
 
 export const metadata: Metadata = {
-  title: "Radison Akerman - Personal Changelog",
-  description: "Personal updates and notes from Radison Akerman.",
+  title: "Changelog | Radison Akerman",
+  description:
+    "Personal updates, improvements, and notes from Radison Akerman.",
   keywords: [
     "Radison Akerman",
     "software engineer",
@@ -31,8 +31,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Radison Akerman - Personal Changelog",
-    description: "Personal updates and notes from Radison Akerman.",
+    title: "Changelog | Radison Akerman",
+    description:
+      "Personal updates, improvements, and notes from Radison Akerman.",
     url: "/",
     siteName: "Radison Akerman's Changelog",
     type: "website",
@@ -40,9 +41,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Radison Akerman - Personal Changelog",
-    description: "Personal updates and notes from Radison Akerman.",
-    creator: "@rak3rman",
+    title: "Changelog | Radison Akerman",
+    description:
+      "Personal updates, improvements, and notes from Radison Akerman.",
+    creator: "Radison Akerman",
   },
   robots: {
     index: true,
@@ -92,10 +94,7 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#08090a" />
         <link rel="canonical" href="https://changelog.radison.io" />
       </head>
-      <body className="font-sans">
-        {children}
-        <LitHydrationScript />
-      </body>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }

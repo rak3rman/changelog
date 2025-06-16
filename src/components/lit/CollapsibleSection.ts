@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
-import { customElement, property, state } from "lit/decorators.js";
+import { property, state } from "lit/decorators.js";
+import { safeDefineCustomElement } from "../../lib/ComponentRegistry";
 
-@customElement("collapsible-section")
 export class CollapsibleSection extends LitElement {
   @property({ type: String }) declare title: string;
   @property({ type: Number }) declare childCount: number;
@@ -12,10 +12,11 @@ export class CollapsibleSection extends LitElement {
     :host {
       display: block;
       padding: var(--space-xl) 0;
+      border-top: 1px solid var(--border-medium);
     }
 
-    :host + :host {
-      border-top: 1px solid var(--border-medium);
+    :host(.first-section) {
+      border-top: none;
     }
 
     .header {
@@ -66,12 +67,14 @@ export class CollapsibleSection extends LitElement {
       max-height: 0;
       overflow: hidden;
       opacity: 0;
-      transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+      transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out,
+        padding-top 0.2s ease-in-out;
     }
 
     .content.expanded {
       max-height: 1000px;
       opacity: 1;
+      padding-top: var(--space-lg);
     }
 
     @media (max-width: 767px) {
@@ -90,6 +93,21 @@ export class CollapsibleSection extends LitElement {
     super();
     this.expanded = false;
     this.childCount = 0;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    // Check if this is the first collapsible-section in its parent
+    const parent = this.parentElement;
+    if (parent) {
+      const allCollapsibleSections = parent.querySelectorAll(
+        "collapsible-section"
+      );
+      if (allCollapsibleSections[0] === this) {
+        this.classList.add("first-section");
+      }
+    }
   }
 
   toggleExpanded() {
@@ -123,3 +141,6 @@ export class CollapsibleSection extends LitElement {
     `;
   }
 }
+
+// Register the custom element
+safeDefineCustomElement("collapsible-section", CollapsibleSection);

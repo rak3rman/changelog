@@ -4,8 +4,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import styles from "./page.module.css";
 import mdxComponents from "../components/MDXComponents";
 import matter from "gray-matter";
-import LitLogHeader from "../components/react/LogHeader";
-import ReleaseSection from "@/components/react/ReleaseSection";
+import LitLogHeader from "../components/react/LitLogHeader";
+import LitReleaseSection from "@/components/react/LitReleaseSection";
 import LitBackToTopButton from "@/components/react/LitBackToTopButton";
 
 export default async function Home() {
@@ -49,12 +49,12 @@ export default async function Home() {
         <div>
           {mdxContents.map((item, index) => (
             <div key={index} className={styles.mdxContent}>
-              <ReleaseSection
+              <LitReleaseSection
                 date={item.frontmatter.date}
                 tag={item.frontmatter.tag}
               >
                 <MDXRemote source={item.content} components={mdxComponents} />
-              </ReleaseSection>
+              </LitReleaseSection>
             </div>
           ))}
         </div>

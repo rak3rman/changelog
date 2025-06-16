@@ -83,6 +83,7 @@
   /* Border colors */
   --border-light: rgba(255, 255, 255, 0.1);
   --border-medium: rgba(255, 255, 255, 0.2);
+  --border-subtle: rgba(255, 255, 255, 0.15);
 
   /* Spacing tokens */
   --space-xs: 0.25rem; /* 4px */
@@ -128,7 +129,6 @@
 /* --background: #ffffff; */
 /* --foreground: #212121; */
 /* --accent: #5e5e5e; */
-/* --accent-rgb: 94, 94, 94; */
 /* --primary: #212121; */
 /* --secondary: #586cb2; */
 /* --neutral: #86868b; */
@@ -142,6 +142,7 @@
 /* Border colors */
 /* --border-light: rgba(82, 82, 91, 0.3); */
 /* --border-medium: rgba(82, 82, 91, 0.5); */
+/* --border-subtle: rgba(82, 82, 91, 0.4); */
 /* } */
 /* } */
 

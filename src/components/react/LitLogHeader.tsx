@@ -1,6 +1,6 @@
 "use client";
 
-import { createComponent } from "@lit-labs/react";
+import { createComponent } from "@lit/react";
 import { LogHeader } from "../lit/LogHeader";
 import React from "react";
 

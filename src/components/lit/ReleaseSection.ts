@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
+import { safeDefineCustomElement } from "../../lib/ComponentRegistry";
 
-@customElement("release-section")
 export class ReleaseSection extends LitElement {
   @property({ type: String }) declare date: string;
   @property({ type: String }) declare tag: string;
@@ -89,3 +89,6 @@ export class ReleaseSection extends LitElement {
     `;
   }
 }
+
+// Register the custom element
+safeDefineCustomElement("release-section", ReleaseSection);

@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "lit";
-import { customElement, state } from "lit/decorators.js";
+import { state } from "lit/decorators.js";
+import { safeDefineCustomElement } from "../../lib/ComponentRegistry";
 
-@customElement("back-to-top-button")
 export class BackToTopButton extends LitElement {
   @state()
   declare isVisible: boolean;
@@ -154,3 +154,6 @@ export class BackToTopButton extends LitElement {
     `;
   }
 }
+
+// Register the custom element
+safeDefineCustomElement("back-to-top-button", BackToTopButton);

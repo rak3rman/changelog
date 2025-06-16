@@ -1,6 +1,6 @@
 "use client";
 
-import { createComponent } from "@lit-labs/react";
+import { createComponent } from "@lit/react";
 import { BackToTopButton } from "../lit/BackToTopButton";
 import React from "react";
 
