@@ -30,9 +30,19 @@ export class ReleaseSection extends LitElement {
       display: flex;
       flex-direction: column;
       gap: var(--space-sm);
+      z-index: 10;
+    }
+
+    .date-text {
       color: var(--neutral);
       font-size: var(--text-sm);
-      z-index: 10;
+      font-weight: 400;
+      line-height: 1.4;
+      padding-top: var(--space-xs);
+    }
+
+    .tag-wrapper {
+      margin-top: var(--space-xs);
     }
 
     @media (min-width: 768px) {
@@ -57,6 +67,15 @@ export class ReleaseSection extends LitElement {
         gap: var(--space-xl);
         margin: var(--space-3xl) 0;
       }
+
+      .date-text {
+        font-size: var(--text-xs);
+        padding-top: var(--space-2xl);
+      }
+
+      .date-column {
+        gap: var(--space-xs);
+      }
     }
   `;
 
@@ -65,18 +84,21 @@ export class ReleaseSection extends LitElement {
       <section>
         <div class="grid">
           <div class="date-column">
-            ${new Date(
-              new Date(this.date).getTime() + 24 * 60 * 60 * 1000
-            ).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            <div class="date-text">
+              ${new Date(
+                new Date(this.date).getTime() + 24 * 60 * 60 * 1000
+              ).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </div>
             ${this.tag
-              ? html`<div>
+              ? html`<div class="tag-wrapper">
                   <label-component
                     name="${this.tag}"
                     hide-dot
+                    muted
                   ></label-component>
                 </div>`
               : ""}

@@ -5,6 +5,7 @@ import { safeDefineCustomElement } from "../../lib/ComponentRegistry";
 export class Label extends LitElement {
   @property({ type: String }) declare name: string;
   @property({ type: Boolean, attribute: "hide-dot" }) declare hideDot: boolean;
+  @property({ type: Boolean, attribute: "muted" }) declare muted: boolean;
 
   private calculateColorFromName(name: string): string {
     // Simple hash function to generate a consistent number from a string
@@ -42,6 +43,10 @@ export class Label extends LitElement {
       transform: translateY(-0.1em);
     }
 
+    :host([muted]) {
+      background-color: var(--base-200);
+    }
+
     .color-dot {
       width: var(--space-sm);
       height: var(--space-sm);
@@ -51,6 +56,10 @@ export class Label extends LitElement {
 
     .tag-text {
       color: var(--foreground);
+    }
+
+    :host([muted]) .tag-text {
+      color: var(--neutral);
     }
 
     @media (max-width: 767px) {
