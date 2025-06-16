@@ -40,7 +40,7 @@ export class LogHeader extends LitElement {
     .subtitle {
       color: var(--neutral);
       padding-bottom: var(--space-sm);
-      line-height: 1.75;
+      line-height: 1.65;
       margin: 0;
       font-size: var(--text-lg);
     }
@@ -48,6 +48,7 @@ export class LogHeader extends LitElement {
     @media (max-width: 767px) {
       .subtitle {
         font-size: var(--text-base);
+        padding-right: var(--space-4xl);
       }
     }
 

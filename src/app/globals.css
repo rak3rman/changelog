@@ -67,23 +67,22 @@
   --font-serif: "Tiempos Headline", "Times New Roman", serif;
 
   /* Base color scheme */
-  --background: #ffffff;
-  --foreground: #212121;
-  --accent: #5e5e5e;
-  --accent-rgb: 94, 94, 94;
-  --primary: #212121;
+  --background: #08090a;
+  --foreground: #f7f8f8;
+  --accent: #d1d5db;
+  --primary: #f7f8f8;
   --secondary: #586cb2;
   --neutral: #86868b;
   --success: #059669;
   --warning: #ff5a00;
-  --base-100: #ffffff;
-  --base-200: #f5f5f5;
-  --base-300: #e8e8e8;
+  --base-100: #08090a;
+  --base-200: #141516;
+  --base-300: #191a1b;
   --muted: #141516;
 
   /* Border colors */
-  --border-light: rgba(82, 82, 91, 0.3);
-  --border-medium: rgba(82, 82, 91, 0.5);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.2);
 
   /* Spacing tokens */
   --space-xs: 0.25rem; /* 4px */
@@ -123,29 +122,32 @@
   --transition-normal: 0.2s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #08090a;
-    --foreground: #f7f8f8;
-    --accent: #d1d5db;
-    --primary: #f7f8f8;
-    --secondary: #586cb2;
-    --neutral: #86868b;
-    --success: #059669;
-    --warning: #ff5a00;
-    --base-100: #08090a;
-    --base-200: #141516;
-    --base-300: #191a1b;
-    --muted: #141516;
+/* @media (prefers-color-scheme: light) { */
+/* :root { */
+/* Base color scheme */
+/* --background: #ffffff; */
+/* --foreground: #212121; */
+/* --accent: #5e5e5e; */
+/* --accent-rgb: 94, 94, 94; */
+/* --primary: #212121; */
+/* --secondary: #586cb2; */
+/* --neutral: #86868b; */
+/* --success: #059669; */
+/* --warning: #ff5a00; */
+/* --base-100: #ffffff; */
+/* --base-200: #f5f5f5; */
+/* --base-300: #e8e8e8; */
+/* --muted: #141516; */
 
-    /* Dark mode border colors */
-    --border-light: rgba(255, 255, 255, 0.1);
-    --border-medium: rgba(255, 255, 255, 0.2);
-  }
-}
+/* Border colors */
+/* --border-light: rgba(82, 82, 91, 0.3); */
+/* --border-medium: rgba(82, 82, 91, 0.5); */
+/* } */
+/* } */
 
 html {
   scroll-behavior: smooth;
+  background: var(--background);
 }
 
 html,

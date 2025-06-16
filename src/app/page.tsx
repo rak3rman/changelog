@@ -6,6 +6,7 @@ import mdxComponents from "../components/MDXComponents";
 import matter from "gray-matter";
 import LitLogHeader from "../components/react/LogHeader";
 import ReleaseSection from "@/components/react/ReleaseSection";
+import LitBackToTopButton from "@/components/react/LitBackToTopButton";
 
 export default async function Home() {
   // Read MDX files from context directory
@@ -67,6 +68,7 @@ export default async function Home() {
           </div>
         </div>
       </main>
+      <LitBackToTopButton />
     </div>
   );
 }

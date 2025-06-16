@@ -53,6 +53,12 @@ export const COMPONENT_REGISTRY: ComponentConfig[] = [
       tag: props.tag?.toString() || "",
     }),
   },
+  {
+    tagName: "back-to-top-button",
+    importPath: "components/lit/BackToTopButton",
+    available: true,
+    validateProps: () => ({}),
+  },
 ];
 
 /**

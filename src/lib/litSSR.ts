@@ -49,6 +49,8 @@ export async function renderLitComponent(
       await import("../components/lit/LogHeader");
     } else if (tagName === "release-section") {
       await import("../components/lit/ReleaseSection");
+    } else if (tagName === "back-to-top-button") {
+      await import("../components/lit/BackToTopButton");
     }
   } catch (error) {
     console.error(`Error loading component ${tagName}:`, error);

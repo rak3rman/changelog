@@ -19,6 +19,7 @@ export default function LitHydrationScript() {
         await import("./lit/Label");
         await import("./lit/LogHeader");
         await import("./lit/ReleaseSection");
+        await import("./lit/BackToTopButton");
 
         console.debug("Lit components hydrated");
 

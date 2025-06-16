@@ -28,7 +28,7 @@ export class Label extends LitElement {
     :host {
       display: inline-flex;
       align-items: center;
-      gap: var(--space-xs);
+      gap: 7px;
       padding: 0 var(--space-sm);
       height: 1.3rem;
       border-radius: var(--radius-md);
@@ -55,7 +55,7 @@ export class Label extends LitElement {
 
     @media (max-width: 767px) {
       :host {
-        gap: 5px;
+        gap: 6px;
       }
 
       .color-dot {
