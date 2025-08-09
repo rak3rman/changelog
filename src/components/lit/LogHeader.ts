@@ -67,7 +67,7 @@ export class LogHeader extends LitElement {
     return html`
       <main class="container">
         <div class="header">
-          <h1>Changelog</h1>
+          <h1>Monolog</h1>
           <p class="subtitle">
             Personal updates, improvements, and notes from Radison Akerman.
           </p>

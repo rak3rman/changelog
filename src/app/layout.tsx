@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Changelog | Radison Akerman",
+  title: "Monolog | Radison Akerman",
   description:
     "Personal updates, improvements, and notes from Radison Akerman.",
   keywords: [
     "Radison Akerman",
     "software engineer",
-    "changelog",
+    "Monolog",
     "personal blog",
     "Vista Power",
     "SpaceX",
@@ -25,23 +25,23 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://changelog.radison.io"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://log.radison.io"
   ),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Changelog | Radison Akerman",
+    title: "Monolog | Radison Akerman",
     description:
       "Personal updates, improvements, and notes from Radison Akerman.",
     url: "/",
-    siteName: "Radison Akerman's Changelog",
+    siteName: "Radison Akerman's Monolog",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary",
-    title: "Changelog | Radison Akerman",
+    title: "Monolog | Radison Akerman",
     description:
       "Personal updates, improvements, and notes from Radison Akerman.",
     creator: "Radison Akerman",
@@ -92,7 +92,7 @@ export default function RootLayout({
         />
         <meta name="theme-color" content="#08090a" />
         <meta name="msapplication-TileColor" content="#08090a" />
-        <link rel="canonical" href="https://changelog.radison.io" />
+        <link rel="canonical" href="https://log.radison.io" />
       </head>
       <body className="font-sans">{children}</body>
     </html>

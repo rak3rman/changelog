@@ -60,7 +60,7 @@ export default async function Home() {
         </div>
         <div className={styles.endSection}>
           <div className={styles.endContent}>
-            <span>You&apos;ve reached the end of the changelog.</span>
+            <span>You&apos;ve reached the end of the monolog.</span>
             <div className={styles.endQuote}>
               &ldquo;A journey of a thousand miles begins <br /> with a single
               step.&rdquo; — Lao Tzu
